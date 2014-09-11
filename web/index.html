@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Cdeio - 欢迎使用</title>
+
+		<meta name="description" content="and Validation" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<link rel="stylesheet" href="assets/css/select2.css" />
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+	</head>
+
+	<body>
+		<div class="main-container container-fluid">
+			<a class="menu-toggler" id="menu-toggler" href="#">
+				<span class="menu-text"></span>
+			</a>
+			<div class="main-content">
+				<div class="page-content">
+					<div class="page-header position-relative">
+						<h1>
+							欢迎使用Cdeio
+							<small>
+								<i class="icon-double-angle-right"></i>
+								系统配置
+							</small>
+						</h1>
+					</div><!-- /.page-header -->
+
+					<div class="row-fluid">
+						<div class="span12">
+							<div class="row-fluid">
+								<div class="span12">
+									<div class="widget-box">
+										<div class="widget-header widget-header-blue widget-header-flat">
+											<h4 class="lighter">系统配置</h4>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main">
+												<div class="row-fluid">
+													<div id="fuelux-wizard" class="row-fluid" data-target="#step-container">
+														<ul class="wizard-steps">
+															<li data-target="#step1" class="active">
+																<span class="step">1</span>
+																<span class="title">基本信息</span>
+															</li>
+
+															<li data-target="#step2">
+																<span class="step">2</span>
+																<span class="title">数据库信息</span>
+															</li>
+
+															<li data-target="#step3">
+																<span class="step">3</span>
+																<span class="title">服务信息</span>
+															</li>
+
+															<li data-target="#step4">
+																<span class="step">4</span>
+																<span class="title">完成</span>
+															</li>
+														</ul>
+													</div>
+
+													<hr />
+													<div class="step-content row-fluid position-relative" id="step-container">
+														<div class="step-pane active" id="step1">
+															<h3 class="lighter block green">请输入以下系统信息：</h3>
+
+															<form class="form-horizontal" id="validation-form" method="get">
+																<div class="control-group">
+																	<label class="control-label" for="appId">应用程序标识：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="appId" id="appId" class="span6" />
+																		</div>
+																	</div>
+																</div>
+
+																<div class="control-group">
+																	<label class="control-label" for="appName">应用程序名称：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="appName" id="appName" class="span6" /><span class="help-button" data-rel="popover" data-trigger="hover" data-placement="left" data-content="More details." title="" data-original-title="Popover on hover">!</span>
+																		</div>
+
+																	</div>
+																</div>
+
+																<div class="control-group">
+																	<label class="control-label" for="appPath">应用程序路径：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="appPath" id="appPath" class="span6" />
+																		</div>
+																	</div>
+																</div>
+															</form>
+														</div>
+
+														<div class="step-pane" id="step2">
+														<h3 class="lighter block green">请输入以下数据库信息：</h3>
+														<div class="form-horizontal" >
+
+																<div class="control-group">
+																	<label class="control-label" for="dbType">数据库类型：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="dbType" id="dbType" class="span6" />
+																		</div>
+																	</div>
+																</div>
+																<div class="control-group">
+																	<label class="control-label" for="dbDriver">数据库驱动：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="dbDriver" id="dbDriver" class="span6" />
+																		</div>
+																	</div>
+																</div>
+																<div class="control-group">
+																	<label class="control-label" for="dbName">数据库名称：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="dbName" id="dbName" class="span6" />
+																		</div>
+																	</div>
+																</div>
+																<div class="control-group">
+																	<label class="control-label" for="dbUserName">数据库用户名：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="dbUserName" id="dbUserName" class="span6" />
+																		</div>
+																	</div>
+																</div>
+																<div class="control-group">
+																	<label class="control-label" for="dbPwd">数据库密码：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="password" name="dbPwd" id="dbPwd" class="span6" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="step-pane" id="step3">
+														<div class="form-horizontal" >
+														<h3 class="lighter block green">请输入以下服务信息：</h3>
+														<div class="control-group">
+																	<label class="control-label" for="serverPort">服务端口：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="serverPort" id="serverPort" class="span6" />
+																		</div>
+																	</div>
+																</div>
+																</div>
+															<!--<div class="center">
+																<h3 class="blue lighter">This is step 3</h3>
+															</div> -->
+														</div>
+
+														<div class="step-pane" id="step4">
+
+																<h3 class="lighter green">请确认以下信息，点按“确认”。 完成 ✔︎</h3>
+
+																<div class="hr hr-dotted"></div>
+																<p class="lead">应用程序标识：<span id="textAppId"></span></p>
+																<p class="lead">应用程序名称：<span id="textAppName"></span> </p>
+																<p class="lead">应用程序路径：<span id="textAppPath"></span> </p>
+
+																<p class="lead">数据库类型：<span id="textDbType"></span></p>
+																<p class="lead">数据库驱动：<span id="textDbDriver"></span></p>
+																<p class="lead">数据库名称：<span id="textDbName"></span></p>
+																<p class="lead">数据库用户名：<span id="textDbUserName"></span></p>
+																<p class="lead">数据库密码：<span id="textDbPwd"></span></p>
+
+																<p class="lead">服务端口：<span id="textServerPort"></span></p>
+
+														</div>
+													</div>
+
+													<hr />
+													<div class="row-fluid wizard-actions">
+														<button class="btn btn-prev">
+															<i class="icon-arrow-left"></i>
+															上一步
+														</button>
+
+														<button class="btn btn-success btn-next" data-last="完成">
+															下一步
+															<i class="icon-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</div>
+											</div><!-- /widget-main -->
+										</div><!-- /widget-body -->
+									</div>
+								</div>
+							</div>
+						</div><!-- /.span -->
+					</div><!-- /.row-fluid -->
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="assets/js/fuelux/fuelux.wizard.min.js"></script>
+		<script src="assets/js/jquery.validate.min.js"></script>
+		<script src="assets/js/additional-methods.min.js"></script>
+		<script src="assets/js/bootbox.min.js"></script>
+		<script src="assets/js/jquery.maskedinput.min.js"></script>
+		<script src="assets/js/select2.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+		<script src='assets/js/sockjs-min-0.3.4.js'></script>
+		<script src='assets/js/vertxbus.js'></script>
+		<script src='assets/js/client_app.js'></script>
+	</body>
+</html>
