@@ -97,16 +97,16 @@
 
 													<hr />
 													<div class="step-content row-fluid position-relative" id="step-container">
+													<form class="form-horizontal" id="validation-form" method="get">
 														<div class="step-pane active" id="step1">
 															<h3 class="lighter block green">请输入以下系统信息：</h3>
 
-															<form class="form-horizontal" id="validation-form" method="get">
 																<div class="control-group">
 																	<label class="control-label" for="appId">应用程序标识：</label>
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="appId" id="appId" class="span6" />
+																			<input type="text" name="appId" id="appId" class="span6" data-rel="tooltip" title="请输入大写、小写字母或数字"/>
 																		</div>
 																	</div>
 																</div>
@@ -116,7 +116,8 @@
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="appName" id="appName" class="span6" /><span class="help-button" data-rel="popover" data-trigger="hover" data-placement="left" data-content="More details." title="" data-original-title="Popover on hover">!</span>
+																			<input type="text" data-rel="tooltip" name="appName" id="appName" class="span6" placeholder="Tooltip on hover" title="Hello Tooltip!" data-placement="bottom"/>
+																			<span class="help-button" data-rel="popover" data-trigger="hover" data-placement="left" data-content="More details." title="" data-original-title="Popover on hover">!</span>
 																		</div>
 
 																	</div>
@@ -127,11 +128,10 @@
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="appPath" id="appPath" class="span6" />
+																			<input type="text" name="appPath" id="appPath" class="span6" value="C://test/" />
 																		</div>
 																	</div>
 																</div>
-															</form>
 														</div>
 
 														<div class="step-pane" id="step2">
@@ -143,7 +143,7 @@
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="dbType" id="dbType" class="span6" />
+																			<input type="text" name="dbType" id="dbType" class="span6" value="MySQL"/>
 																		</div>
 																	</div>
 																</div>
@@ -152,7 +152,7 @@
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="dbDriver" id="dbDriver" class="span6" />
+																			<input type="text" name="dbDriver" id="dbDriver" class="span6" value="com.mysql.jdbc.Driver"/>
 																		</div>
 																	</div>
 																</div>
@@ -194,7 +194,7 @@
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="serverPort" id="serverPort" class="span6" />
+																			<input type="text" name="serverPort" id="serverPort" class="span6" value="8080"/>
 																		</div>
 																	</div>
 																</div>
@@ -222,6 +222,7 @@
 																<p class="lead">服务端口：<span id="textServerPort"></span></p>
 
 														</div>
+														</form>
 													</div>
 
 													<hr />

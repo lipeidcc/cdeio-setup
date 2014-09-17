@@ -1,5 +1,6 @@
 var vertx = require('vertx');
 var container = require('vertx/container');
+var eb = vertx.eventBus;
 var console = require('vertx/console');
 
 var webServerConf = {
@@ -9,13 +10,13 @@ var webServerConf = {
     bridge: true,
     inbound_permitted: [
         {
-            address: 'vertx.test.database'
+            address: 'zyeeda.config.action'
         }
     ]
 }
 
 var persistorConf = {
-    address : 'test.persistor',
+    address : 'zyeeda.config.persistor',
 
     driver : 'com.mysql.jdbc.Driver',
     url : 'jdbc:mysql://localhost:3306/test',
@@ -26,9 +27,15 @@ var persistorConf = {
 
 }
 
+var zyeedaConf = {
+    address : 'zyeeda.config.service',
+    appConfigPath : '/Users/qizhao/Workspace/Zyeeda/test.property',
+    serverConfigPath: 'jetty-http.xml',
+    dbConfigPath: '../jetty-env.xml'
+}
 
 try {
-	load('src/handlers.js');
+	load('lib/handlers.js');
 } catch (e) {
 	console.error('Error : ' + e);
 }
