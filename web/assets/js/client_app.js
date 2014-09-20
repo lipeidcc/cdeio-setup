@@ -10,18 +10,35 @@ jQuery(function($) {
 	//});
 	var basicAppPath = $('#appPath').val();
 	$('#appId').change(function(event) {
-		$('#appPath').val(function(index, value) {
+		$('#appPath').val(function (index, value) {
 
 			return basicAppPath + $('#appId').val();
 		});
 	});
-	$('#validation-form').validate({
+	var basicDBURL = $('#dbURL').val();
+	$('#dbName').change(function(event) {
+		$('#dbURL').val(function (index, value) {
+			return basicDBURL + $('#dbName').val();
+		});
+	});
+	$.validator.addMethod("appIdReg", function (value, element) {
+		var patten = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._-]){4,19}$/;
+
+		return patten.exec(value);
+	}, "非法的应用标识");
+	$.validator.addMethod("ipReg", function (value, element) {
+		var patten = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/; 
+
+		return patten.exec(value);
+	}, "非法的IP地址");
+	/*$('#validation-form').validate({
 		errorElement: 'span',
 		errorClass: 'help-inline',
 		focusInvalid: false,
 		rules: {
 			appId: {
-				required: true
+				required: true,
+				appIdReg: true
 			},
 			appName: {
 				required: true
@@ -37,6 +54,14 @@ jQuery(function($) {
             },
             dbName: {
                 required: true
+            },
+            dbHost: {
+            	required: true,
+            	ipReg: true
+            },
+            dbPort: {
+            	required: true,
+            	number: true
             },
             dbUserName: {
                 required: true
@@ -68,6 +93,13 @@ jQuery(function($) {
             dbName: {
                 required: "数据库名称不能为空。"
             },
+            dbHost: {
+            	required: "数据库地址不能为空。"
+            },
+            dbPort: {
+            	required: "数据库端口不能为空。",
+            	number: "数据库端口只能为数字。"
+            },
             dbUserName: {
                 required: "数据库用户名不能为空。"
             },
@@ -89,7 +121,7 @@ jQuery(function($) {
 			$(e).remove();
 		},
 	});
-
+*/
 	$('[data-rel=tooltip]').tooltip({
 		container: 'body'
 	});
@@ -98,7 +130,7 @@ jQuery(function($) {
 	});
 	//var $validation = false;
 	$('#fuelux-wizard').ace_wizard().on('change', function(e, info) {
-        if (info.step == 1) {
+        if (info.step == 3) {
             var validateAppId = $('#validation-form').validate().element('#appId');
             var validateAppName = $('#validation-form').validate().element('#appName');
             var validateAppPath= $('#validation-form').validate().element('#appPath');
@@ -112,15 +144,18 @@ jQuery(function($) {
             };
         }
 
-        if (info.step == 2) {
+        if (info.step == 4) {
             var validateDBType = $('#validation-form').validate().element('#dbType');
             var validateDBDriver = $('#validation-form').validate().element('#dbDriver');
             var validateDBName = $('#validation-form').validate().element('#dbName');
+            var validateDBHost = $('#validation-form').validate().element('#dbHost');
+            var validateDBPort = $('#validation-form').validate().element('#dbPort');
             var validateDBUserName = $('#validation-form').validate().element('#dbUserName');
             var validateDBPwd = $('#validation-form').validate().element('#dbPwd');
 
             if ((!validateDBType) || (!validateDBDriver) || (!validateDBName)
-                || (!validateDBUserName) || (!validateDBPwd)) {
+                || (!validateDBUserName) || (!validateDBPwd) || (!validateDBPort)
+                 || (!validateDBHost)) {
                 console.log('validate false.');
                 return false;
             } else {
@@ -129,7 +164,7 @@ jQuery(function($) {
             };
         }
 
-		if (info.step == 3) {
+		if (info.step == 5) {
             var validatePort = $('#validation-form').validate().element('#serverPort');
             if (!validatePort) {
                 return false;
@@ -141,34 +176,95 @@ jQuery(function($) {
                 $('#textDbType').text($('#dbType').val());
                 $('#textDbDriver').text($('#dbDriver').val());
                 $('#textDbName').text($('#dbName').val());
+                $('#textDbHost').text($('#dbHost').val());
+                $('#textDbPort').text($('#dbPort').val());
                 $('#textDbUserName').text($('#dbUserName').val());
                 $('#textDbPwd').text($('#dbPwd').val());
                 $('#textServerPort').text($('#serverPort').val());
+                $('#appLoad').hide();
+                $('#dbLoad').hide();
+                $('#serverLoad').hide();
                 return true;
             }
 		}
+
+		if (info.step == 6) {
+			var obj = {
+				appId: $('#appId').val(),
+				appName: $('#appName').val(),
+				appPath: $('#appPath').val(),
+				dbType: $('#dbType').val(),
+				dbDriver: $('#dbDriver').val(),
+				dbName: $('#dbName').val(),
+				dbHost: $('#dbHost').val(),
+				dbPort: $('#dbPort').val(),
+				dbUserName: $('#dbUserName').val(),
+				dbPwd: $('#dbPwd').val(),
+				serverPort: $('#serverPort').val()
+			};
+			$('#appLoad').show();
+			$('.progress').attr('data-percent', '45%');
+			$('.bar').css('width', '45%');
+			eb.send('zyeeda.config.action', obj, function(reply) {
+				$('#dbLoad').show();
+				$('.progress').attr('data-percent', '65%');
+				$('.bar').css('width', '65%');
+				console.log(JSON.stringify(reply));
+				if (reply.status == 'ok') {
+					console.log('1111');
+					$('#serverLoad').show();
+					$('.progress').attr('data-percent', '100%');
+					$('.bar').css('width', '100%');
+				}
+			    /*if (reply.status === 'ok') {
+			        bootbox.dialog("谢谢 ! 您的信息已经成功保存 !", [{
+			            "label" : "确定",
+			            "class" : "btn-small btn-primary",
+			            callback : function() {
+			            	$('.wizard-actions').hide();
+			            }}]
+			        );
+			    } else {
+			    	console.log(JSON.stringify(reply));
+			    	$.gritter.add({
+						title: '警告',
+						text: reply.message,
+						class_name: 'btn-danger'
+					});
+			    }*/
+			}); 
+		}
 	}).on('finished', function(e) {
-		var obj = {
+		/*var obj = {
 			appId: $('#appId').val(),
 			appName: $('#appName').val(),
 			appPath: $('#appPath').val(),
 			dbType: $('#dbType').val(),
 			dbDriver: $('#dbDriver').val(),
 			dbName: $('#dbName').val(),
+			dbURL: $('#dbURL').val(),
 			dbUserName: $('#dbUserName').val(),
 			dbPwd: $('#dbPwd').val(),
 			serverPort: $('#serverPort').val()
-		}
-
+		};
 		eb.send('zyeeda.config.action', obj, function(reply) {
 		    if (reply.status === 'ok') {
-		        bootbox.dialog("谢谢 ! 您的信息已经成功保存 !", [{
+		        ootbox.dialog("谢谢 ! 您的信息已经成功保存 !", [{
 		            "label" : "确定",
 		            "class" : "btn-small btn-primary",
-		            }]
+		            callback : function() {
+		            	$('.wizard-actions').hide();
+		            }}]
 		        );
+		    } else {
+		    	console.log(JSON.stringify(reply));
+		    	$.gritter.add({
+					title: '警告',
+					text: reply.message,
+					class_name: 'btn-danger'
+				});
 		    }
-		});
+		}); */
 		//eb.send('vertx.test.property', obj, function(reply) {
 		//	if (reply.status === 'ok') {
 		//		console.log('ok');

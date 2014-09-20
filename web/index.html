@@ -12,7 +12,8 @@
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-
+		<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.custom.min.css" />
+		<link rel="stylesheet" href="assets/css/jquery.gritter.css" />
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
 		<![endif]-->
@@ -43,13 +44,28 @@
 	</head>
 
 	<body>
+		<div class="navbar" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a href="#" class="brand">
+						<small>
+							<i class="icon-leaf"></i>
+							欢迎使用Cdeio
+						</small>
+					</a><!-- /.brand -->
+				</div>
+			</div>
+		</div>	
 		<div class="main-container container-fluid">
 			<a class="menu-toggler" id="menu-toggler" href="#">
 				<span class="menu-text"></span>
 			</a>
 			<div class="main-content">
-				<div class="page-content">
-					<div class="page-header position-relative">
+				<div class="page-content ">
+					<!-- <div class="page-header position-relative">
 						<h1>
 							欢迎使用Cdeio
 							<small>
@@ -57,39 +73,55 @@
 								系统配置
 							</small>
 						</h1>
-					</div><!-- /.page-header -->
+					</div> .page-header -->
 
 					<div class="row-fluid">
 						<div class="span12">
 							<div class="row-fluid">
 								<div class="span12">
 									<div class="widget-box">
-										<div class="widget-header widget-header-blue widget-header-flat">
-											<h4 class="lighter">系统配置</h4>
-										</div>
+										<!--<div class="widget-header ">
+										
+										</div> -->
 
-										<div class="widget-body">
+										<div>
 											<div class="widget-main">
 												<div class="row-fluid">
 													<div id="fuelux-wizard" class="row-fluid" data-target="#step-container">
 														<ul class="wizard-steps">
 															<li data-target="#step1" class="active">
 																<span class="step">1</span>
-																<span class="title">基本信息</span>
+																<span class="title">欢迎</span>
 															</li>
 
 															<li data-target="#step2">
 																<span class="step">2</span>
-																<span class="title">数据库信息</span>
+																<span class="title">用户协议</span>
 															</li>
 
 															<li data-target="#step3">
 																<span class="step">3</span>
-																<span class="title">服务信息</span>
+																<span class="title">基本信息</span>
 															</li>
 
 															<li data-target="#step4">
 																<span class="step">4</span>
+																<span class="title">数据库信息</span>
+															</li>
+															<li data-target="#step5">
+																<span class="step">5</span>
+																<span class="title">服务信息</span>
+															</li>
+															<li data-target="#step6">
+																<span class="step">6</span>
+																<span class="title">摘要信息</span>
+															</li>
+															<li data-target="#step7">
+																<span class="step">7</span>
+																<span class="title">安装</span>
+															</li>
+															<li data-target="#step8">
+																<span class="step">8</span>
 																<span class="title">完成</span>
 															</li>
 														</ul>
@@ -97,44 +129,60 @@
 
 													<hr />
 													<div class="step-content row-fluid position-relative" id="step-container">
+													<div class="step-pane active" id="step1">
+														<h1 class="lighter block green">欢迎使用Cdeio, 请点击“下一步” 开始安装。</h1>	
+														
+													</div>
+													<div class="step-pane" id="step2">
+														<h3 class="lighter block green">用户协议</h3>
+													</div>
+
 													<form class="form-horizontal" id="validation-form" method="get">
-														<div class="step-pane active" id="step1">
+														<div class="step-pane" id="step3">
 															<h3 class="lighter block green">请输入以下系统信息：</h3>
 
 																<div class="control-group">
-																	<label class="control-label" for="appId">应用程序标识：</label>
+																	<label class="control-label" for="appId">应用程序标识：
+																	
+																	</label>
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="appId" id="appId" class="span6" data-rel="tooltip" title="请输入大写、小写字母或数字"/>
+																			<input type="text" placement="top" name="appId" id="appId" class="span6" data-rel="tooltip" title="请输入大写、小写字母、数字或者._-"/>
 																		</div>
 																	</div>
 																</div>
 
 																<div class="control-group">
-																	<label class="control-label" for="appName">应用程序名称：</label>
+																	<label class="control-label" for="appName">应用程序名称：
+																	
+																	</label>
 
 																	<div class="controls">
+
 																		<div class="span12">
-																			<input type="text" data-rel="tooltip" name="appName" id="appName" class="span6" placeholder="Tooltip on hover" title="Hello Tooltip!" data-placement="bottom"/>
-																			<span class="help-button" data-rel="popover" data-trigger="hover" data-placement="left" data-content="More details." title="" data-original-title="Popover on hover">!</span>
+
+																			<input type="text"  placement="top" data-rel="tooltip" name="appName" id="appName" class="span6"  title="请输入名字，可以是汉字" data-placement="bottom"/>
+																			
 																		</div>
 
 																	</div>
 																</div>
 
 																<div class="control-group">
-																	<label class="control-label" for="appPath">应用程序路径：</label>
+																	<label class="control-label" for="appPath">应用程序路径：
+																	
+																	</label>
 
 																	<div class="controls">
 																		<div class="span12">
-																			<input type="text" name="appPath" id="appPath" class="span6" value="C://test/" />
+																			<input type="text" name="appPath" data-rel="tooltip" placement="top" id="appPath" title="请输入合法的路径地址"class="span6" value="/Users/qizhao/Desktop/build" />
 																		</div>
 																	</div>
 																</div>
 														</div>
 
-														<div class="step-pane" id="step2">
+														<div class="step-pane" id="step4">
 														<h3 class="lighter block green">请输入以下数据库信息：</h3>
 														<div class="form-horizontal" >
 
@@ -153,6 +201,25 @@
 																	<div class="controls">
 																		<div class="span12">
 																			<input type="text" name="dbDriver" id="dbDriver" class="span6" value="com.mysql.jdbc.Driver"/>
+																		</div>
+																	</div>
+																</div>
+																
+																<div class="control-group">
+																	<label class="control-label" for="dbHost">数据库地址：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="dbHost" id="dbHost" class="span6" />
+																		</div>
+																	</div>
+																</div>
+																<div class="control-group">
+																	<label class="control-label" for="dbPort">数据库端口：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="text" name="dbPort" id="dbPort" class="span6" />
 																		</div>
 																	</div>
 																</div>
@@ -186,7 +253,7 @@
 															</div>
 														</div>
 
-														<div class="step-pane" id="step3">
+														<div class="step-pane" id="step5">
 														<div class="form-horizontal" >
 														<h3 class="lighter block green">请输入以下服务信息：</h3>
 														<div class="control-group">
@@ -204,7 +271,7 @@
 															</div> -->
 														</div>
 
-														<div class="step-pane" id="step4">
+														<div class="step-pane" id="step6">
 
 																<h3 class="lighter green">请确认以下信息，点按“确认”。 完成 ✔︎</h3>
 
@@ -215,6 +282,8 @@
 
 																<p class="lead">数据库类型：<span id="textDbType"></span></p>
 																<p class="lead">数据库驱动：<span id="textDbDriver"></span></p>
+																<p class="lead">数据库地址：<span id="textDbHost"></span></p>
+																<p class="lead">数据库端口：<span id="textDbPort"></span></p>
 																<p class="lead">数据库名称：<span id="textDbName"></span></p>
 																<p class="lead">数据库用户名：<span id="textDbUserName"></span></p>
 																<p class="lead">数据库密码：<span id="textDbPwd"></span></p>
@@ -223,6 +292,32 @@
 
 														</div>
 														</form>
+														<div class="step-pane" id="step7">
+															
+															<div class="span6">
+																<ul class="unstyled spaced">
+																	<li id="appLoad">
+																		<i class="icon-ok green" ></i>
+																		已完成应用程序配置信息
+																	</li>
+																	<li id="dbLoad">
+																		<i class="icon-ok green" ></i>
+																		已完成数据库配置信息
+																	</li>
+																	<li id="serverLoad">
+																		<i class="icon-ok green" ></i>
+																		已完成服务配置信息
+																	</li>
+																</ul>
+																<div class="progress progress-success progress-striped active" data-percent="45%">
+																	<div class="bar" style="width: 45%;"></div>
+																</div>
+
+															</div>
+														</div>
+														<div class="step-pane" id="step8">
+															
+														</div>
 													</div>
 
 													<hr />
@@ -275,14 +370,16 @@
 		<script src="assets/js/bootstrap.min.js"></script>
 
 		<!-- page specific plugin scripts -->
-
+		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<!-- <script src="assets/js/jquery.ui.touch-punch.min.js"></script> -->
+		<script src="assets/js/jquery.gritter.min.js"></script>
 		<script src="assets/js/fuelux/fuelux.wizard.min.js"></script>
 		<script src="assets/js/jquery.validate.min.js"></script>
 		<script src="assets/js/additional-methods.min.js"></script>
 		<script src="assets/js/bootbox.min.js"></script>
 		<script src="assets/js/jquery.maskedinput.min.js"></script>
 		<script src="assets/js/select2.min.js"></script>
-
+		<!-- <script src="assets/js/spin.min.js"></script> -->
 		<!-- ace scripts -->
 
 		<script src="assets/js/ace-elements.min.js"></script>
