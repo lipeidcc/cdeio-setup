@@ -35,7 +35,7 @@ var zyeedaConf = {
 }
 
 try {
-	load('lib/handlers.js');
+	load('handlers.js');
 } catch (e) {
 	console.error('Error : ' + e);
 }
