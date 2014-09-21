@@ -61,7 +61,8 @@ jQuery(function($) {
             },
             dbPort: {
             	required: true,
-            	number: true
+            	number: true,
+            	maxlength: 4
             },
             dbUserName: {
                 required: true
@@ -71,7 +72,8 @@ jQuery(function($) {
             },
             serverPort: {
                 required: true,
-                number: true
+                number: true,
+                maxlength: 4
             }
 		},
 		messages: {
@@ -98,7 +100,8 @@ jQuery(function($) {
             },
             dbPort: {
             	required: "数据库端口不能为空。",
-            	number: "数据库端口只能为数字。"
+            	number: "数据库端口只能为数字。",
+            	maxlength: "数据库端口的最大长度是4个字符。"
             },
             dbUserName: {
                 required: "数据库用户名不能为空。"
@@ -108,7 +111,8 @@ jQuery(function($) {
             },
             serverPort: {
                 required: "服务端口不能为空。",
-                number: "服务端口只能为数字"
+                number: "服务端口只能为数字",
+                maxlength: "数据库端口的最大长度是4个字符。"
             }
 
 		},
@@ -130,16 +134,28 @@ jQuery(function($) {
 	});
 	//var $validation = false;
 	$('#fuelux-wizard').ace_wizard().on('change', function(e, info) {
+		if (info.step == 2) {
+			if ($('#service-agreement').prop( "checked" )) {
+				return true;
+			} else {
+				$.gritter.add({
+					title: '警告',
+					text: '需要同意此协议，才可以进一步安装',
+					class_name: 'btn-danger'
+				});
+				return false;
+			}
+		}
         if (info.step == 3) {
             var validateAppId = $('#validation-form').validate().element('#appId');
             var validateAppName = $('#validation-form').validate().element('#appName');
             var validateAppPath= $('#validation-form').validate().element('#appPath');
 
             if ((!validateAppId) || (!validateAppName) || (!validateAppPath)) {
-                console.log('validate false.');
+                console.log('validate false.3');
                 return false;
             } else {
-                console.log('validate true');
+                console.log('validate true 3');
                 return true;
             };
         }
@@ -156,10 +172,10 @@ jQuery(function($) {
             if ((!validateDBType) || (!validateDBDriver) || (!validateDBName)
                 || (!validateDBUserName) || (!validateDBPwd) || (!validateDBPort)
                  || (!validateDBHost)) {
-                console.log('validate false.');
+                console.log('validate false.4');
                 return false;
             } else {
-                console.log('validate true');
+                console.log('validate true 4');
                 return true;
             };
         }

@@ -72,7 +72,7 @@ eb.registerHandler('zyeeda.config.action', function(msg, reply) {
                                         },
                                         function(serverReplier) {
                                             if (serverReplier.status == 'ok') {
-                                                /** 复制starter-kit 到工作空间目录*/
+                                                /** 复制starter-kit 到工作空间目录 */
                                                 vertx.fileSystem.copy('../packages/starter-kit-v2.0.0', msg.appPath, true, function (err) {
                                                     if (!err) {
                                                         reply({
