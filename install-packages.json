@@ -1,0 +1,57 @@
+ [{
+		"pomFile":"../repository/origin/pom.xml",
+		"file":"../repository/origin/pom.xml"
+	},
+	{
+		"pomFile":"../repository/validation/pom.xml",
+		"file":"../repository/cdeio-validation-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile":"../repository/commons/pom.xml",
+		"file":"../repository/cdeio-commons-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/ringo/pom.xml",
+		"file": "../repository/cdeio-ringo-0.10.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/test/pom.xml",
+		"file":"../repository/cdeio-test-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/revision/pom.xml",
+		"file":"../repository/cdeio-revision-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/knowledge/pom.xml",
+		"file":"../repository/cdeio-knowledge-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/core/pom.xml",
+		"file":"../repository/cdeio-core-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/proxy/pom.xml",
+		"file":"../repository/proxy/cdeio-proxy-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/ringo/pom.xml",
+		"file":"../repository/ringo/cdeio-ringo-0.10.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/bpm/pom.xml",
+		"file":"../repository/bpm/cdeio-bpm-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/sso/openid-consumer/pom.xml",
+		"file":"../repository/sso/openid-consumer/cdeio-sso-openid-consumer-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/sso/openid/pom.xml",
+		"file":"../repository/sso/openid/cdeio-sso-openid-2.0.0-SNAPSHOT.jar"
+	},
+	{
+		"pomFile": "../repository/sso/pom.xml",
+		"file":"../repository/sso/pom.xml"
+	}
+]

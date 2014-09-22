@@ -75,12 +75,20 @@ eb.registerHandler('zyeeda.config.action', function(msg, reply) {
                                                 /** 复制starter-kit 到工作空间目录 */
                                                 vertx.fileSystem.copy('../packages/starter-kit-v2.0.0', msg.appPath, true, function (err) {
                                                     if (!err) {
-                                                        reply({
-                                                            status: 'ok'
-                                                        });
                                                         console.log('Copy was successful');
-                                                        //container.undeployModule(deployID);
-                                                        container.undeployModule(deployId);
+                                                        eb.send('zyeeda.config.service', {
+                                                            type: 'maven',
+                                                            config: 'install-packages.json'
+                                                        }, function (mvnreplier) {
+                                                            if (mvnreplier.status == 'ok') {
+                                                                console.log('install package successful !');
+                                                                reply({
+                                                                    status: 'ok'
+                                                                });
+                                                                //container.undeployModule(deployID);
+                                                                container.undeployModule(deployId);
+                                                            }
+                                                        });
                                                     } else {
                                                         console.error(err);
                                                     }

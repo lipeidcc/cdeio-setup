@@ -197,6 +197,12 @@ jQuery(function($) {
                 $('#textDbUserName').text($('#dbUserName').val());
                 $('#textDbPwd').text($('#dbPwd').val());
                 $('#textServerPort').text($('#serverPort').val());
+                if ($('#isInstallPackages').prop( "checked" )) {
+                	$('#textIsInstallPackages').text('是');	
+                } else {
+                	$('#textIsInstallPackages').text('否');	
+                }
+                
                 $('#appLoad').hide();
                 $('#dbLoad').hide();
                 $('#serverLoad').hide();
@@ -216,7 +222,8 @@ jQuery(function($) {
 				dbPort: $('#dbPort').val(),
 				dbUserName: $('#dbUserName').val(),
 				dbPwd: $('#dbPwd').val(),
-				serverPort: $('#serverPort').val()
+				serverPort: $('#serverPort').val(),
+				isInstallPackages: $('#isInstallPackages').prop( "checked" )
 			};
 			$('#appLoad').show();
 			$('.progress').attr('data-percent', '45%');
@@ -227,7 +234,6 @@ jQuery(function($) {
 				$('.bar').css('width', '65%');
 				console.log(JSON.stringify(reply));
 				if (reply.status == 'ok') {
-					console.log('1111');
 					$('#serverLoad').show();
 					$('.progress').attr('data-percent', '100%');
 					$('.bar').css('width', '100%');

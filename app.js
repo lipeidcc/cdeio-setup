@@ -29,9 +29,9 @@ var persistorConf = {
 
 var zyeedaConf = {
     address : 'zyeeda.config.service',
-    appConfigPath : '/Users/qizhao/Workspace/Zyeeda/test.property',
-    serverConfigPath: 'jetty-http.xml',
-    dbConfigPath: '../jetty-env.xml'
+    appConfigPath : '../packages/starter-kit-v2.0.0/src/main/resources/settings/cdeio.properties',
+    serverConfigPath: '../packages/starter-kit-v2.0.0/src/main/resources/META-INF/jetty/jetty-http.xml',
+    dbConfigPath: '../packages/starter-kit-v2.0.0/src/main/webapp/WEB-INF/jetty-env.xml'
 }
 
 try {

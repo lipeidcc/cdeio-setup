@@ -378,7 +378,7 @@ e) 其他危害手机或计算机信息网络安全的行为。
 														<div class="step-pane" id="step5">
 														<div class="form-horizontal" >
 														<h3 class="lighter block green">请输入以下服务信息：</h3>
-														<div class="control-group">
+																<div class="control-group">
 																	<label class="control-label" for="serverPort">服务端口：</label>
 
 																	<div class="controls">
@@ -386,8 +386,20 @@ e) 其他危害手机或计算机信息网络安全的行为。
 																			<input type="text" name="serverPort" id="serverPort" class="span6" data-rel="tooltip" title="请输入合法服务端口，例如：8081"  value="8081"/>
 																		</div>
 																	</div>
+
 																</div>
+																<div class="control-group">
+																	<label class="control-label" for="serverPort">是否安装支持库：</label>
+
+																	<div class="controls">
+																		<div class="span12">
+																			<input type="checkbox" name="isInstallPackages" id="isInstallPackages" class="ace ace-checkbox-2 span6" />
+																			<span class="lbl"></span>
+																		</div>
+																	</div>
+
 																</div>
+														</div>
 															<!--<div class="center">
 																<h3 class="blue lighter">This is step 3</h3>
 															</div> -->
@@ -411,7 +423,7 @@ e) 其他危害手机或计算机信息网络安全的行为。
 																<p class="lead">数据库密码：<span id="textDbPwd"></span></p>
 
 																<p class="lead">服务端口：<span id="textServerPort"></span></p>
-
+																<p class="lead">是否安装支持库：<span id="textIsInstallPackages"></span></p>
 														</div>
 														</form>
 														<div class="step-pane" id="step7">
